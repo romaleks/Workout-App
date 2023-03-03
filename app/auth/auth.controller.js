@@ -1,6 +1,10 @@
+import { prisma } from '../prisma.js'
+
 // @desc   Auth user
-// @route  POST /api/users/login
+// @route  POST /api/auth/login
 // @access Pubic
 export const authUser = async (req, res) => {
-	res.json({ message: 'You are authenticated' })
+	const user = await prisma.user.findMany()
+
+	res.json(user)
 }
