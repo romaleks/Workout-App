@@ -1,6 +1,19 @@
 import asyncHandler from 'express-async-handler'
 import { prisma } from '../prisma.js'
 
+// @desc   Get exercises
+// @route  GET /api/exercises
+// @access Private
+export const getExercises = asyncHandler(async (req, res) => {
+  const exercises = await prisma.exercise.findMany({
+    orderBy: {
+      createdAt: 'desc',
+    },
+  })
+
+  res.json(exercises)
+})
+
 // @desc   Create new exercise
 // @route  POST /api/exercises
 // @access Private
@@ -59,17 +72,4 @@ export const deleteExercise = asyncHandler(async (req, res) => {
     res.status(404)
     throw new Error('Exercise not found!')
   }
-})
-
-// @desc   Get exercises
-// @route  GET /api/exercises
-// @access Private
-export const getExercises = asyncHandler(async (req, res) => {
-  const exercises = await prisma.exercise.findMany({
-    orderBy: {
-      createdAt: 'desc',
-    },
-  })
-
-  res.json(exercises)
 })
