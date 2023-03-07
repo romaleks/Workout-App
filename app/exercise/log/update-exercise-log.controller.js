@@ -1,6 +1,5 @@
 import asyncHandler from 'express-async-handler'
 import { prisma } from '../../prisma.js'
-import { addPrevValues } from './add-prev-values.util.js'
 
 // @desc    Update exercise log time
 // @route   PUT /api/exercises/log/time

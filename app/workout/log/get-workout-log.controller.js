@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler'
 import { prisma } from '../../prisma.js'
+import { calculateMinute } from '../calculate-munute.js'
 
 // @desc    Get workout log
 // @route   GET /api/workouts/log/:id
@@ -10,7 +11,19 @@ export const getWorkoutLog = asyncHandler(async (req, res) => {
       id: +req.params.id,
     },
     include: {
-      workout: true,
+      workout: {
+        include: {
+          exercises: true,
+        },
+      },
+      exerciseLogs: {
+        orderBy: {
+          id: 'asc',
+        },
+        include: {
+          exercise: true,
+        },
+      },
     },
   })
 
@@ -19,5 +32,8 @@ export const getWorkoutLog = asyncHandler(async (req, res) => {
     throw new Error('Workout Log not found!')
   }
 
-  res.json(workoutLog)
+  res.json({
+    workoutLog,
+    minutes: calculateMinute(workoutLog.workout.exercises.length),
+  })
 })
