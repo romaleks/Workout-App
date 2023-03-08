@@ -11,11 +11,7 @@ const Hamburger = () => {
 	return (
 		<div ref={ref} className={styles.wrapper}>
 			<button onClick={() => setIsShow(!isShow)}>
-				{isShow ? (
-					<CgClose color='white' size={35} />
-				) : (
-					<CgMenuRight color='white' size={35} />
-				)}
+				{isShow ? <CgClose size={35} /> : <CgMenuRight size={35} />}
 			</button>
 			<Menu isShow={isShow} />
 		</div>
