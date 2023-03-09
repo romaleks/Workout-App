@@ -17,6 +17,8 @@
   &:focus {
     outline: none;
   }
+
+  font-family: $default-font;
 }
 
 *::-webkit-input-placeholder {
@@ -49,11 +51,10 @@ body {
   padding: 0;
   margin: 0;
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
   min-width: 320px;
   position: relative;
   line-height: 1.65;
-  font-family: $default-font;
   overflow-x: hidden;
 }
 
