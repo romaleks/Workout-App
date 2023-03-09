@@ -4,26 +4,26 @@ import NewWorkout from '../components/screens/new-workout/NewWorkout'
 import Profile from '../components/screens/profile/Profile'
 
 export const routes = [
-	{
-		path: '/',
-		component: Home,
-		auth: false
-	},
-	{
-		path: '/auth',
-		component: Auth,
-		auth: false
-	},
-	{
-		path: '/new-workout',
-		component: NewWorkout,
-		auth: true
-	},
-	{
-		path: '/profile',
-		component: Profile,
-		auth: true
-	} /* 
+  {
+    path: '/',
+    component: Home,
+    auth: false,
+  },
+  {
+    path: '/auth',
+    component: Auth,
+    auth: false,
+  },
+  {
+    path: '/new-workout',
+    component: NewWorkout,
+    auth: true,
+  },
+  {
+    path: '/profile',
+    component: Profile,
+    auth: true,
+  } /* 
 	{
 		path: '/new-exercise',
 
@@ -48,5 +48,5 @@ export const routes = [
 
 		component: SingleExercise,
 		auth: true,
-	}, */
+	}, */,
 ]

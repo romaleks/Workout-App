@@ -7,23 +7,23 @@ import NotFound from '../components/screens/not-found/NotFound'
 import { routes } from './routes.data'
 
 const Router = () => {
-	const { isAuth } = useAuth()
+  const { isAuth } = useAuth()
 
-	return (
-		<BrowserRouter>
-			<Routes>
-				{/* TODO: Auth routes */}
-				{routes.map(route => (
-					<Route
-						key={route.path}
-						path={route.path}
-						element={<route.component />}
-					/>
-				))}
-				<Route path='*' element={<NotFound />} />
-			</Routes>
-		</BrowserRouter>
-	)
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* TODO: Auth routes */}
+        {routes.map(route => (
+          <Route
+            key={route.path}
+            path={isAuth ? route.path : '/not-found'}
+            element={<route.component />}
+          />
+        ))}
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default Router

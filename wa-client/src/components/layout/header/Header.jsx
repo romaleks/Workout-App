@@ -7,17 +7,17 @@ import Hamburger from '../hamburger/Hamburger'
 import styles from './Header.module.scss'
 
 const Header = () => {
-	const { isAuth } = useAuth()
+  const { isAuth } = useAuth()
 
-	return (
-		<header className={styles.header}>
-			<button onClick={() => {}}>
-				<HiOutlineArrowLeft color='white' size={35} />
-			</button>
-			{/* User profile */}
-			<Hamburger />
-		</header>
-	)
+  return (
+    <header className={styles.header}>
+      <button onClick={() => {}}>
+        <HiOutlineArrowLeft color='white' size={35} />
+      </button>
+      {/* User profile */}
+      <Hamburger />
+    </header>
+  )
 }
 
 export default Header
