@@ -27,7 +27,7 @@ const Header = ({ backLink = '/' }) => {
       ) : (
         <button
           onClick={() => {
-            navigate('/profile')
+            navigate(isAuth ? '/profile' : '/auth')
           }}
         >
           <HiOutlineUser color='white' size={35} />
