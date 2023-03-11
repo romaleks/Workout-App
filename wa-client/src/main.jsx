@@ -1,11 +1,10 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import React, { createContext } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import './assets/styles/index.scss'
+import AuthProvider from './providers/AuthProvider'
 import Router from './routes/Router'
-
-export const AuthContext = createContext(false)
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,10 +16,10 @@ const queryClient = new QueryClient({
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthContext.Provider value={false}>
+    <AuthProvider>
       <QueryClientProvider client={queryClient}>
         <Router />
       </QueryClientProvider>
-    </AuthContext.Provider>
+    </AuthProvider>
   </React.StrictMode>
 )

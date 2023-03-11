@@ -15,13 +15,7 @@ function Home() {
 
   return (
     <Layout bgImage='/images/home-bg.jpg'>
-      <Button
-        clickHandler={() =>
-          isAuth ? navigate('/new-workout') : navigate('/auth')
-        }
-      >
-        {isAuth ? 'New' : 'Sign in'}
-      </Button>
+      <Button clickHandler={() => navigate('/new-workout')}>New</Button>
       <h1 className={styles.heading}>EXERCISES FOR THE SHOULDERS</h1>
       {/* Counters */}
     </Layout>

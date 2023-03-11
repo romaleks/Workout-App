@@ -13,7 +13,7 @@ const Hamburger = () => {
       <button onClick={() => setIsShow(!isShow)}>
         {isShow ? <CgClose size={35} /> : <CgMenuRight size={35} />}
       </button>
-      <Menu isShow={isShow} />
+      <Menu isShow={isShow} setIsShow={setIsShow} />
     </div>
   )
 }
