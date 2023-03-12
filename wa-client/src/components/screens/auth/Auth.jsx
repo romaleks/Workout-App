@@ -2,11 +2,10 @@ import Loader from '../../ui/Loader'
 import Button from '../../ui/button/Button'
 import Field from '../../ui/field/Field'
 
-import { useAuthPage } from '../../../hooks/useAuthPage'
-
 import Layout from '../../layout/Layout'
 
 import styles from './Auth.module.scss'
+import { useAuthPage } from './useAuthPage'
 
 const Auth = () => {
   const { setType, register, handleSubmit, errors, isLoading, onSubmit } =

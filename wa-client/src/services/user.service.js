@@ -3,7 +3,7 @@ import { $axios } from '../api'
 const USERS = '/users'
 
 class UserService {
-  getProfile() {
+  async getProfile() {
     return $axios.get(`${USERS}/profile`)
   }
 }
