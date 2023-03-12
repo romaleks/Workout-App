@@ -1,42 +1,30 @@
-import { useMutation } from '@tanstack/react-query'
 import cn from 'clsx'
-import { Controller, useForm } from 'react-hook-form'
+import { Controller } from 'react-hook-form'
 
 import Loader from '../../ui/Loader'
 import Alert from '../../ui/alert/Alert'
 import Button from '../../ui/button/Button'
 import Field from '../../ui/field/Field'
 
-import ExerciseService from '../../../services/exercise/exercise.service'
 import Layout from '../../layout/Layout'
 
 import styles from './NewExercise.module.scss'
 import { getIconPath } from './icon-path.util'
+import { useNewExercisePage } from './useNewExercisePage'
 
 const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
 
 const NewExercise = () => {
-  const { mutate, isSuccess, isLoading, error } = useMutation(
-    ['create exercise'],
-    body => ExerciseService.create(body),
-    {
-      onSuccess: () => {
-        reset()
-      },
-    }
-  )
-
   const {
+    isSuccess,
+    isLoading,
+    error,
     register,
     handleSubmit,
-    reset,
-    formState: { errors },
+    errors,
     control,
-  } = useForm({ mode: 'onChange' })
-
-  const onSubmit = data => {
-    mutate(data)
-  }
+    onSubmit,
+  } = useNewExercisePage()
 
   return (
     <>
