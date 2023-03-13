@@ -10,7 +10,7 @@ import Layout from '../../layout/Layout'
 
 import styles from './NewExercise.module.scss'
 import { getIconPath } from './icon-path.util'
-import { useNewExercisePage } from './useNewExercisePage'
+import { useNewExercise } from './useNewExercise'
 
 const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
 
@@ -24,7 +24,7 @@ const NewExercise = () => {
     errors,
     control,
     onSubmit,
-  } = useNewExercisePage()
+  } = useNewExercise()
 
   return (
     <>

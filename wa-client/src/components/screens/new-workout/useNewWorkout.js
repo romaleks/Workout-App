@@ -1,15 +1,18 @@
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 
-import ExerciseService from '../../../services/exercise/exercise.service'
+import WorkoutService from '../../../services/workout/workout.service'
 
-export const useNewExercisePage = () => {
+export const useNewWorkout = () => {
   const { mutate, isSuccess, isLoading, error } = useMutation(
-    ['create exercise'],
-    body => ExerciseService.create(body),
+    ['create workout'],
+    body => WorkoutService.create(body),
     {
       onSuccess: () => {
-        reset()
+        reset({
+          name: '',
+          exerciseIds: [],
+        })
       },
     }
   )
@@ -23,7 +26,10 @@ export const useNewExercisePage = () => {
   } = useForm({ mode: 'onChange' })
 
   const onSubmit = data => {
-    mutate(data)
+    mutate({
+      name: data.name,
+      exerciseIds: data.exerciseIds.map(ex => ex.value),
+    })
   }
 
   return {

@@ -2,7 +2,7 @@ import { $axios } from '../../api'
 
 const EXERCISES = '/exercises'
 
-class UserService {
+class ExerciseService {
   async getAll() {
     return $axios.get(EXERCISES)
   }
@@ -21,4 +21,4 @@ class UserService {
   }
 }
 
-export default new UserService()
+export default new ExerciseService()
