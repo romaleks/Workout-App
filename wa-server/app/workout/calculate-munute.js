@@ -1,2 +1,1 @@
-export const calculateMinute = (length, times) =>
-  Math.ceil(length * times * 3.7)
+export const calculateMinute = length => Math.ceil(length * 3.7)

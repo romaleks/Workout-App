@@ -34,7 +34,7 @@ const Workout = () => {
 
         {isSuccess && (
           <div>
-            <time className={styles.time}>{workoutLog.minutes + ' min.'}</time>
+            <time className={styles.time}>{workoutLog.minute + ' min.'}</time>
             <h1 className={stylesLayout.heading}>{workoutLog.workout.name}</h1>
           </div>
         )}
