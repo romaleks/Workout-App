@@ -59,7 +59,6 @@ export const createNewWorkoutLog = asyncHandler(async (req, res) => {
     include: {
       exerciseLogs: {
         include: {
-          exercise: true,
           times: true,
         },
       },
