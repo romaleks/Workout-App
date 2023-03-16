@@ -1,6 +1,8 @@
 import cn from 'clsx'
 import { useNavigate } from 'react-router-dom'
 
+import serverPath from '../../../../utils/server-path'
+
 import styles from './Workout.module.scss'
 
 const ExerciseItem = ({ exerciseLog }) => {
@@ -18,7 +20,7 @@ const ExerciseItem = ({ exerciseLog }) => {
       >
         <span>{exerciseLog.exercise.name}</span>
         <img
-          src={import.meta.env.VITE_SERVER_URL + exerciseLog.exercise.iconPath}
+          src={serverPath + exerciseLog.exercise.iconPath}
           height='34'
           alt=''
           draggable={false}

@@ -6,6 +6,7 @@ import Alert from '../../ui/alert/Alert'
 import Button from '../../ui/button/Button'
 import Field from '../../ui/field/Field'
 
+import serverPath from '../../../utils/server-path'
 import Layout from '../../layout/Layout'
 
 import styles from './NewExercise.module.scss'
@@ -68,9 +69,7 @@ const NewExercise = () => {
                 {data.map(name => (
                   <img
                     key={`ex img ${name}`}
-                    src={`${import.meta.env.VITE_SERVER_URL}${getIconPath(
-                      name
-                    )}`}
+                    src={`${serverPath}${getIconPath(name)}`}
                     alt={name}
                     className={cn({
                       [styles.active]: value === getIconPath(name),
