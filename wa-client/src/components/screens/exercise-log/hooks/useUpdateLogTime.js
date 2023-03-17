@@ -17,7 +17,15 @@ export const useUpdateLogTime = times => {
     ({ timeId, body }) => ExerciseLogService.updateTime(timeId, body),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries(['get exercise log', id])
+        queryClient.invalidateQueries(['get exercise log', id]).then(() => {
+          const filteredTimes = times.filter(time => time.isCompleted)
+
+          if (filteredTimes.length === times.length - 1) {
+            completeLog({
+              isCompleted: true,
+            })
+          }
+        })
       },
     }
   )
