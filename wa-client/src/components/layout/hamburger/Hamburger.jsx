@@ -10,7 +10,7 @@ const Hamburger = () => {
 
   return (
     <div ref={ref} className={styles.wrapper}>
-      <button onClick={() => setIsShow(!isShow)}>
+      <button aria-label='Toggle menu' onClick={() => setIsShow(!isShow)}>
         {isShow ? <CgClose size={35} /> : <CgMenuRight size={35} />}
       </button>
       <Menu isShow={isShow} setIsShow={setIsShow} />
